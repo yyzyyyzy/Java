@@ -1,8 +1,8 @@
-package private关键字;
+package 关键字_private;
 
 public class PersonTest {
     public static void main(String[] args) {
-        private关键字.Person p1 = new private关键字.Person();
+        关键字_private.Person p1 = new 关键字_private.Person();
 
         p1.setName("lzk");
         p1.setAge(18);

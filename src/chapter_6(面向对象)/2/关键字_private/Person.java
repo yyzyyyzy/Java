@@ -1,4 +1,4 @@
-package private关键字;
+package 关键字_private;
 
 public class Person {
 

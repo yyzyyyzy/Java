@@ -1,0 +1,35 @@
+在Java中，泛型确实不直接支持基本数据类型（如 int、char、double 等）。
+这是因为泛型是在编译器层面实现的类型擦除，而基本数据类型没有对应的泛型类型参数。
+Java泛型只能用于类和接口，并且泛型参数只能是引用类型（类类型或接口类型），不能是基本数据类型。
+
+基本数据类型的限制
+基本数据类型（primitive types）在Java中是直接存储值的，而不是存储对象的引用。
+因此，泛型不能直接应用于基本数据类型，例如不能声明一个 ArrayList<int> 或 Box<double>。
+这种情况下，需要使用对应的包装类（wrapper classes）来替代基本数据类型。
+
+使用包装类
+Java提供了包装类来包装每种基本数据类型，使其能够像对象一样参与泛型：
+
+Integer 包装 int
+Double 包装 double
+Character 包装 char
+Boolean 包装 boolean
+等等...
+
+例如，可以声明一个泛型 ArrayList，其中元素类型为 Integer：
+ArrayList<Integer> list = new ArrayList<>();
+list.add(10); // 自动装箱为 Integer 对象
+int value = list.get(0); // 自动拆箱为 int
+在这个例子中，ArrayList<Integer> 实际上存储的是 Integer 类型的对象，而不是 int 类型的值。
+自动装箱（autoboxing）和自动拆箱（autounboxing）使得基本数据类型和其对应的包装类可以在需要时相互转换
+
+总结
+虽然泛型不直接支持基本数据类型，但可以通过包装类来实现类似的功能。
+Java中的自动装箱和拆箱机制使得基本数据类型与包装类之间的转换变得更加方便和自然。
+因此，在使用泛型时，应该优先考虑使用包装类而不是基本数据类型。
+
+
+
+
+
+

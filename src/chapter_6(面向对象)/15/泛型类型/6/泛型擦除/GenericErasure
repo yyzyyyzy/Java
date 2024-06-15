@@ -1,0 +1,67 @@
+public class Box<T> {
+    private T value;
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public static void main(String[] args) {
+        // 创建一个装整数的Box实例
+        Box<Integer> intBox = new Box<>();
+        intBox.setValue(10);
+        Integer intValue = intBox.getValue();
+        System.out.println("Integer value: " + intValue);
+
+        // 创建一个装字符串的Box实例
+        Box<String> strBox = new Box<>();
+        strBox.setValue("Hello");
+        String strValue = strBox.getValue();
+        System.out.println("String value: " + strValue);
+    }
+}
+
+
+=============================擦除效果=============================
+
+
+public class Box {
+    private Object value;
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public static void main(String[] args) {
+        // 创建一个装整数的Box实例
+        Box intBox = new Box();
+        intBox.setValue(10);
+        Integer intValue = (Integer) intBox.getValue(); // 需要强制类型转换
+        System.out.println("Integer value: " + intValue);
+
+        // 创建一个装字符串的Box实例
+        Box strBox = new Box();
+        strBox.setValue("Hello");
+        String strValue = (String) strBox.getValue(); // 需要强制类型转换
+        System.out.println("String value: " + strValue);
+    }
+}
+
+解释
+1. 泛型类型替换为 Object：
+    泛型类型 T 在编译时被替换为 Object，因此 Box<T> 类变为 Box 类，其中所有对 T 的引用都变为对 Object 的引用。
+    插入类型转换：
+2. 插入类型转换：
+   在泛型擦除后，获取值时需要插入强制类型转换（如 (Integer) intBox.getValue()），确保在运行时能够获得正确的类型。
+
+总结
+泛型擦除的主要目的是为了确保泛型代码与非泛型代码的兼容性，同时在运行时保持类型安全。
+虽然在编译时使用了泛型类型参数，但在运行时这些信息被擦除并替换为 Object 或指定的上界。
+这种机制使得Java泛型能够实现类型安全，并且可以减少生成的字节码大小。

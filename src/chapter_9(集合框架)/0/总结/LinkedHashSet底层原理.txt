@@ -1,0 +1,9 @@
+LinkedHashSet 的底层原理
+    LinkedHashSet 继承自 HashSet，并且在保持哈希表特性的同时，维护了一个双向链表，以确保元素的插入顺序。具体实现细节如下：
+
+继承关系：
+    LinkedHashSet 继承自 HashSet，并且通过 HashSet 间接继承自 AbstractSet。
+
+额外的双向链表：
+    LinkedHashSet 在内部维护了一个双向链表来记录元素的插入顺序。每个元素在 HashMap 中不仅作为键存储，
+    还通过双向链表链接到前一个和后一个元素，通过消耗内存达到有序的特点

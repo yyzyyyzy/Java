@@ -1,3 +1,5 @@
+当然，请看下面这个专门针对 Windows 平台的 Tomcat 安装指南：
+
 ### Tomcat 安装指南（Windows 版）
 
 #### 步骤 1: 下载 Tomcat
@@ -47,3 +49,5 @@
    ```bash
    shutdown.bat
    ```
+
+这就是针对 Windows 平台的 Tomcat 安装指南。安装完成后，你可以根据需要进一步配置和部署应用程序。
